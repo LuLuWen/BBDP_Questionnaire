@@ -77,7 +77,7 @@ public class QuestionnaireModuleController {
     }
 
     // Original method: updateQuestionnaire
-    @RequestMapping(value = "/updateQuestionnaire", method = RequestMethod.GET)
+    @RequestMapping(value = "/updateQuestionnaire", method = RequestMethod.POST)
     public int updateQuestionnaire(@RequestParam String doctorID, @RequestParam String questionnaireID, @RequestParam String questionnaireName, @RequestParam String questionnaireType, @RequestParam String partArray, @RequestParam String partName, @RequestParam String scoring, @RequestParam String medicalRecord) throws SQLException {
         return QuestionnaireModuleServer.updateQuestionnaire(dataSource.getConnection(), doctorID, questionnaireID, questionnaireName, questionnaireType, partArray, partName, scoring, medicalRecord);
     }
