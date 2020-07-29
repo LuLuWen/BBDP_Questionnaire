@@ -121,7 +121,7 @@ public class PatientQuestionnaireController {
     // Original method: getMoreButton
     @RequestMapping(value = "/getMoreButton", method = RequestMethod.GET)
     public String getMoreButton(@RequestParam String doctorID, @RequestParam String patientID, @RequestParam String answerID) throws SQLException {
-        return PatientQuestionnaireServer.getOptionAnswer(dataSource.getConnection(), doctorID, patientID, answerID);
+        return PatientQuestionnaireServer.getMoreButton(dataSource.getConnection(), doctorID, patientID, answerID);
     }
 
     // Original method: newAnswer

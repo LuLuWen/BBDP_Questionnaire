@@ -506,7 +506,6 @@ public class PatientQuestionnaireServer {
 		} finally {
 			  if (conn!=null) try {conn.close();}catch (Exception ignore) {}
 		}
-		
 		return questionnaireList;
 	}
 	public static String getOptionAnswer(Connection conn, String doctorID, String patientID, String answerID) {
