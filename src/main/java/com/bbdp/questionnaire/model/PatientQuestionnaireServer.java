@@ -4,7 +4,6 @@ import com.bbdp.questionnaire.model.callapi.PatientService;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 
-import javax.print.attribute.HashPrintJobAttributeSet;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +15,6 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
 
 public class PatientQuestionnaireServer {
 	synchronized public static int newPatientQuestionnaire(Connection conn, String doctorID, String patientID, String questionnaireID, String times, String cycleType, String totalTimes, String today) {

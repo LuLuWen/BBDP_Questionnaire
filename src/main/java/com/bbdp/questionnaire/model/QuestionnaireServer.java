@@ -1,20 +1,8 @@
 package com.bbdp.questionnaire.model;
 
 import com.bbdp.questionnaire.model.callapi.DoctorService;
-import io.swagger.v3.core.util.Json;
-import org.apache.http.impl.client.HttpClients;
-import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.ClientHttpRequestFactory;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.HttpStatusCodeException;
-import org.springframework.web.client.RestTemplate;
 
 import java.io.File;
 import java.io.FileInputStream;
