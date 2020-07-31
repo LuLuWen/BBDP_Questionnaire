@@ -1,5 +1,10 @@
 package com.bbdp.questionnaire.model;
 
+import com.bbdp.questionnaire.model.callapi.PatientService;
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
+
+import javax.print.attribute.HashPrintJobAttributeSet;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,6 +16,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 
 public class PatientQuestionnaireServer {
 	synchronized public static int newPatientQuestionnaire(Connection conn, String doctorID, String patientID, String questionnaireID, String times, String cycleType, String totalTimes, String today) {
@@ -548,15 +554,14 @@ public class PatientQuestionnaireServer {
 		}
 		return returnString;
 	}
-	public static ArrayList getMedicalRecord(Connection conn, String doctorID, String patientID, String questionnaireID) {
+	public static ArrayList getMedicalRecord(Connection conn, String doctorID, String patientID, String questionnaireID) throws JSONException {
 		ArrayList medicalRecordList = new ArrayList();
+		JSONObject patient = PatientService.getPatientInfo(patientID);
+
 		try {
 			Statement st = conn.createStatement();
-			ResultSet rs = st.executeQuery("select * FROM patient where patientID = '"+patientID+"'");
-			if (rs.next()) {		
-				medicalRecordList.add(calculateAge(rs.getString("birthday"))+"歲"+rs.getString("sex")+"性");			
-			}			
-			rs = st.executeQuery("select medicalRecord FROM questionnaire where questionnaireID = '"+questionnaireID+"'");
+			medicalRecordList.add(calculateAge((String) patient.get("birthday"))+"歲"+patient.get("sex")+"性");
+			ResultSet rs = st.executeQuery("select medicalRecord FROM questionnaire where questionnaireID = '"+questionnaireID+"'");
 			if (rs.next()) {
 				medicalRecordList.add(rs.getString("medicalRecord"));		
 			}

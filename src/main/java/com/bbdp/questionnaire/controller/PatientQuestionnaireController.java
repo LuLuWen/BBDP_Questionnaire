@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.bbdp.questionnaire.model.PatientQuestionnaireServer;
+import org.codehaus.jettison.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -114,7 +115,7 @@ public class PatientQuestionnaireController {
 
     // Original method: getMedicalRecord
     @RequestMapping(value = "/getMedicalRecord", method = RequestMethod.GET)
-    public ArrayList getMedicalRecord(@RequestParam String doctorID, @RequestParam String patientID, @RequestParam String questionnaireID) throws SQLException {
+    public ArrayList getMedicalRecord(@RequestParam String doctorID, @RequestParam String patientID, @RequestParam String questionnaireID) throws SQLException, JSONException {
         return PatientQuestionnaireServer.getMedicalRecord(dataSource.getConnection(), doctorID, patientID, questionnaireID);
     }
 
