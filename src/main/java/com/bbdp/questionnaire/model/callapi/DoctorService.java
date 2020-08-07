@@ -1,6 +1,5 @@
 package com.bbdp.questionnaire.model.callapi;
 
-import io.swagger.v3.core.util.Json;
 import org.apache.http.impl.client.HttpClients;
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
